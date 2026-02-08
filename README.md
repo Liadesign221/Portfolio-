@@ -78,7 +78,7 @@ Ce projet est open source et disponible sous la licence MIT.
 
 ## Auteur
 
-Développeur Web Frontend - Portfolio 2024
+Liadesign 221 - Portfolio 2026
 
 ## Contact
 
