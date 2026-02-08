@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Portfolio Professionnel
 
 Un portfolio web moderne et professionnel conçu avec HTML, Tailwind CSS et JavaScript.
@@ -82,3 +83,6 @@ Développeur Web Frontend - Portfolio 2024
 ## Contact
 
 Pour toute question ou suggestion, vous pouvez me contacter via le formulaire du portfolio ou directement par email.
+=======
+# Portfolio
+>>>>>>> ee2216cca030c58d6057b094c81c1456a9316be8
