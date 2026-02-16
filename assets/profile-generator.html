@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Générateur Image Profil</title>
+</head>
+<body>
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Couleur de fond dégradé
+        const gradient = ctx.createLinearGradient(0, 0, 150, 150);
+        gradient.addColorStop(0, '#667eea');
+        gradient.addColorStop(1, '#764ba2');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 150, 150);
+        
+        // Texte initiales
+        ctx.font = 'bold 60px Arial';
+        ctx.fillStyle = 'white';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('LMA', 75, 75);
+        
+        // Télécharger l'image
+        canvas.toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'lia.JPG';
+            a.click();
+        });
+    </script>
+</body>
+</html>
