@@ -3,311 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - LIAMIDI MOHAMED ADEOTI</title>
+    <title>LIAMIDI MOHAMED ADEOTI - Développeur Web</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             scroll-behavior: smooth;
         }
+        body {
+            background: #f9faf8;
+        }
         .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e1b4b 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #4a7c2c;
         }
         .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
         }
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
-        .skill-item {
-            transition: all 0.3s ease;
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
-        .skill-item:hover {
-            transform: scale(1.05);
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a7c2c, #2d5016);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4a7c2c;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+        .cta-button:hover::before {
+            left: 100%;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-gray-100">
+<body class="text-gray-800">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-slate-900 shadow-lg shadow-blue-900/30 z-50 border-b border-blue-800/30">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">LIAMIDI</a>
-                </div>
-                <!-- Menu Desktop -->
+                <a href="#" class="text-2xl font-bold bg-gradient-to-r from-blue-700 to-blue-600 bg-clip-text text-transparent">LIAMIDI</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-300 hover:text-blue-400 transition">Accueil</a>
-                    <a href="#about" class="text-gray-300 hover:text-blue-400 transition">À propos</a>
-                    <a href="#formation" class="text-gray-300 hover:text-blue-400 transition">Formation</a>
-                    <a href="#experience" class="text-gray-300 hover:text-blue-400 transition">Expériences</a>
-                    <a href="#skills" class="text-gray-300 hover:text-blue-400 transition">Compétences</a>
-                    <a href="#projects" class="text-gray-300 hover:text-blue-400 transition">Projets</a>
-                    <a href="#contact" class="text-gray-300 hover:text-blue-400 transition">Contact</a>
+                    <a href="#home" class="nav-link text-gray-700 font-medium">Accueil</a>
+                    <a href="#services" class="nav-link text-gray-700 font-medium">Services</a>
+                    <a href="#projects" class="nav-link text-gray-700 font-medium">Projets</a>
+                    <a href="#skills" class="nav-link text-gray-700 font-medium">Compétences</a>
+                    <a href="#contact" class="nav-link text-gray-700 font-medium">Contact</a>
                 </div>
-                <!-- Bouton Menu Mobile -->
-                <button id="mobile-menu-btn" class="md:hidden p-2">
-                    <i class="fas fa-bars text-2xl text-gray-300"></i>
-                </button>
-            </div>
-            <!-- Menu Mobile -->
-            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
-                <a href="#home" class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20">Accueil</a>
-                <a href="#about" class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20">À propos</a>
-                <a href="#formation" class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20">Formation</a>
-                <a href="#experience" class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20">Expériences</a>
-                <a href="#skills" class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20">Compétences</a>
-                <a href="#projects" class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20">Projets</a>
-                <a href="#contact" class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20">Contact</a>
+                <button id="mobile-menu-btn" class="md:hidden"><i class="fas fa-bars text-2xl"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient pt-32 pb-20 text-white text-center px-4">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-6 animate-bounce">
-                <img src="./assets/mohamed.JPG" alt="LIAMIDI MOHAMED ADEOTI" class="w-32 h-32 rounded-full mx-auto border-4 border-blue-500 object-cover shadow-lg shadow-blue-500/50">
+    <!-- Hero -->
+    <section id="home" class="hero-gradient pt-40 pb-40 text-white px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-block px-4 py-2 bg-white/20 rounded-full mb-6 backdrop-blur-md">
+                    <span class="text-sm font-semibold">Bienvenue</span>
+                </div>
+                <h1 class="text-7xl md:text-8xl font-bold mb-6 leading-tight">LIAMIDI</h1>
+                <p class="text-3xl md:text-4xl mb-4 font-light">Développeur Web</p>
+                <p class="text-lg md:text-xl mb-10 opacity-90 leading-relaxed">Frontend Expert | Créateur d'Interfaces Modernes<br>Spécialiste en HTML, CSS, JavaScript & Tailwind CSS</p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#projects" class="cta-button bg-white text-blue-600 px-10 py-4 rounded-lg font-semibold hover:shadow-2xl transition inline-flex items-center justify-center">
+                        <i class="fas fa-arrow-right mr-2"></i> Voir mes projets
+                    </a>
+                    <a href="#contact" class="cta-button border-2 border-white text-white px-10 py-4 rounded-lg font-semibold hover:bg-white/10 transition inline-flex items-center justify-center">
+                        Me contacter
+                    </a>
+                </div>
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-2 bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">LIAMIDI MOHAMED ADEOTI</h1>
-            <p class="text-xl md:text-2xl mb-6 text-blue-200">Licence 2 - UNIPRO | Stage à TGI</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#projects" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/50">Voir mes projets</a>
-                <a href="#contact" class="border-2 border-blue-400 text-blue-400 px-8 py-3 rounded-lg font-semibold hover:bg-blue-900/20 transition">Me contacter</a>
+            <div class="flex justify-center">
+                <div class="relative">
+                    <img src="./assets/mohamed.jpg" alt="Profile" class="w-96 h-96 rounded-2xl object-cover shadow-2xl">
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center shadow-lg">
+                        <i class="fas fa-code text-4xl text-white"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section À propos -->
-    <section id="about" class="py-20 px-4 bg-slate-900/50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">À propos de moi</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800">Mes Services</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card">
+                    <div class="text-4xl text-blue-600 mb-4"><i class="fas fa-code"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Développement Web</h3>
+                    <p class="text-gray-600">Création de sites et applications web modernes avec HTML, CSS, JavaScript et Tailwind CSS.</p>
+                </div>
+                <div class="service-card">
+                    <div class="text-4xl text-blue-600 mb-4"><i class="fas fa-palette"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">UI/UX Design</h3>
+                    <p class="text-gray-600">Design d'interfaces intuitives et attrayantes adaptées à tous les appareils.</p>
+                </div>
+                <div class="service-card">
+                    <div class="text-4xl text-blue-600 mb-4"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Sites Responsifs</h3>
+                    <p class="text-gray-600">Développement responsive garantissant une expérience optimale sur tous les écrans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos avec stats -->
+    <section id="about" class="py-24 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
                 <div>
-                    <img src="./assets/mohamed.jpg" alt="LIAMIDI MOHAMED ADEOTI" class="rounded-lg shadow-lg object-cover h-96 border border-blue-800/50">
+                    <img src="./assets/mohamed.jpg" alt="Profile" class="rounded-lg shadow-2xl w-full h-96 object-cover">
                 </div>
                 <div>
-                    <p class="text-lg text-gray-300 mb-4 leading-relaxed">
-                        Je suis LIAMIDI MOHAMED ADEOTI, actuellement en Licence 2 à l'UNIPRO. Je suis passionné par le développement web et en particulier par la création d'interfaces utilisateur modernes et performantes.
-                    </p>
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-                        Actuellement en stage à TGI, j'applique mes connaissances en HTML, CSS, JavaScript et Tailwind CSS pour développer des solutions web innovantes. Mon objectif est de maîtriser le développement frontend et de devenir un développeur web compétent et autonome.
-                    </p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-400 mr-3"></i> Design moderne et intuitif</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-400 mr-3"></i> Développement responsive</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-400 mr-3"></i> Performance optimale</li>
-                    </ul>
+                    <h2 class="section-title text-gray-800 mb-8">À propos</h2>
+                    <p class="text-lg text-gray-700 mb-6">Je suis LIAMIDI MOHAMED ADEOTI, développeur web frontend passionné. En Licence 2 à l'UNIPRO et actuellement en stage à TGI.</p>
+                    <p class="text-lg text-gray-700 mb-8">Mon expertise couvre HTML5, CSS3, JavaScript moderne et Tailwind CSS. Je crée des interfaces utilisateur exceptionnelles qui combinent design élégant et fonctionnalité impeccable.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-600"></i> Design moderne</div>
+                        <div class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-600"></i> Développement responsive</div>
+                        <div class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-600"></i> Performance optimale</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid md:grid-cols-3 gap-12 py-16 border-t border-b border-gray-300">
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-blue-600">2+</div>
+                    <p class="text-gray-600 mt-3 font-medium">Années d'Expérience</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-blue-600">10+</div>
+                    <p class="text-gray-600 mt-3 font-medium">Projets Complétés</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-blue-600">100%</div>
+                    <p class="text-gray-600 mt-3 font-medium">Satisfaction Client</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Formation -->
-    <section id="formation" class="py-20 px-4 bg-slate-900/50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-center text-gray-100">Formation</h2>
-            <div class="space-y-8">
-                <div class="bg-slate-800/50 p-8 rounded-lg shadow-md border-l-4 border-blue-500">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Licence 2 - Informatique</h3>
-                            <p class="text-blue-400 font-semibold">UNIPRO</p>
-                        </div>
-                        <span class="text-gray-400 mt-2 md:mt-0">2025 - 2026</span>
+    <!-- Projets -->
+    <section id="projects" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800">Mes Projets</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="project-card">
+                    <img src="marcher.png" alt="Artisanes">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Artisanes Sénégalaises</h3>
+                        <p class="text-gray-600 mb-4">Plateforme de présentation des créations locales.</p>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">En savoir plus →</a>
                     </div>
-                    <p class="text-gray-300">Formation en informatique avec spécialisation en développement web. Apprentissage des concepts fondamentaux et des technologies modernes du développement frontend et backend.</p>
                 </div>
-                <div class="bg-slate-800/50 p-8 rounded-lg shadow-md border-l-4 border-blue-500">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Certificat Web Design</h3>
-                            <p class="text-blue-400 font-semibold">Institut de formation</p>
-                        </div>
-                        <span class="text-gray-400 mt-2 md:mt-0">2022 - 2023</span>
+                <div class="project-card">
+                    <img src="touriste.png" alt="Tourisme">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Guide Touristique Sénégal</h3>
+                        <p class="text-gray-600 mb-4">Découverte des sites et destinations du Sénégal.</p>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">En savoir plus →</a>
                     </div>
-                    <p class="text-gray-300">Acquisition des compétences en design web, UX/UI et création d'interfaces modernes et ergonomiques.</p>
+                </div>
+                <div class="project-card">
+                    <img src="recette.png" alt="Recettes">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Recettes Sénégalaises</h3>
+                        <p class="text-gray-600 mb-4">Présentation des plats traditionnels.</p>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">En savoir plus →</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Expériences -->
-    <section id="experience" class="py-20 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-center text-gray-100">Expériences Professionnelles</h2>
-            <div class="space-y-8">
-                <div class="bg-slate-800/50 p-8 rounded-lg shadow-md border-l-4 border-blue-500">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Stagiaire Développeur Web</h3>
-                            <p class="text-blue-500 font-semibold">TGI</p>
-                        </div>
-                        <span class="text-gray-400 mt-2 md:mt-0">2026 - Présent</span>
-                    </div>
-                    <p class="text-gray-300 mb-3">Stage en développement web frontend. Travail sur des projets réels utilisant HTML, CSS, JavaScript et Tailwind CSS.</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1">
-                        <li>Développement d'interfaces modernes et responsives</li>
-                        <li>Utilisation de Tailwind CSS pour le design</li>
-                        <li>Collaboration en équipe sur des projets web</li>
-                    </ul>
-                </div>
-                <div class="bg-slate-800/50 p-8 rounded-lg shadow-md border-l-4 border-blue-500">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Projets Personnels</h3>
-                            <p class="text-blue-500 font-semibold">Apprentissage continu</p>
-                        </div>
-                        <span class="text-gray-400 mt-2 md:mt-0">2025</span>
-                    </div>
-                    <p class="text-gray-300 mb-3">Développement de projets web personnels pour approfondir mes connaissances en développement frontend.</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1">
-                        <li>Création de sites responsifs avec Tailwind CSS</li>
-                        <li>Utilisation de JavaScript pour les interactions</li>
-                        <li>Versioning avec Git et GitHub</li>
-                    </ul>
-                </div>
+    <!-- Compétences -->
+    <section id="skills" class="py-24 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800">Compétences</h2>
             </div>
-        </div>
-    </section>
-
-    <!-- Section Compétences -->
-    <section id="skills" class="py-20 px-4 bg-slate-900/50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-center text-gray-100">Compétences</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="skill-item bg-slate-800/50 p-6 rounded-lg shadow-md text-center hover:shadow-lg">
-                    <i class="fas fa-code text-4xl text-blue-400 mb-4"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="skill-card">
+                    <i class="fas fa-code text-4xl text-blue-600 mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">HTML & CSS</h3>
-                    <p class="text-gray-400">Maîtrise complète du HTML5 et CSS3 avec Tailwind CSS</p>
+                    <p class="text-gray-600 text-sm">HTML5 et CSS3 avec Tailwind</p>
                 </div>
-                <div class="skill-item bg-slate-800/50 p-6 rounded-lg shadow-md text-center hover:shadow-lg">
+                <div class="skill-card">
                     <i class="fas fa-cube text-4xl text-yellow-500 mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">JavaScript</h3>
-                    <p class="text-gray-400">ES6+, manipulation du DOM, API REST</p>
+                    <p class="text-gray-600 text-sm">ES6+, DOM, API REST</p>
                 </div>
-                <div class="skill-item bg-slate-800/50 p-6 rounded-lg shadow-md text-center hover:shadow-lg">
+                <div class="skill-card">
                     <i class="fab fa-python text-4xl text-blue-600 mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Python</h3>
-                    <p class="text-gray-400">Programmation, scripts, automatisation</p>
+                    <p class="text-gray-600 text-sm">Programmation, scripts</p>
                 </div>
-                <div class="skill-item bg-slate-800/50 p-6 rounded-lg shadow-md text-center hover:shadow-lg">
-                    <i class="fas fa-database text-4xl text-green-600 mb-4"></i>
+                <div class="skill-card">
+                    <i class="fas fa-database text-4xl text-blue-600 mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">SGBDR</h3>
-                    <p class="text-gray-400">SQL, bases de données relationnelles</p>
+                    <p class="text-gray-600 text-sm">SQL et bases de données</p>
                 </div>
-                <div class="skill-item bg-slate-800/50 p-6 rounded-lg shadow-md text-center hover:shadow-lg">
+                <div class="skill-card">
                     <i class="fab fa-java text-4xl text-orange-600 mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Java</h3>
-                    <p class="text-gray-400">Programmation orientée objet</p>
+                    <p class="text-gray-600 text-sm">POO et design patterns</p>
                 </div>
-                <div class="skill-item bg-slate-800/50 p-6 rounded-lg shadow-md text-center hover:shadow-lg">
+                <div class="skill-card">
                     <i class="fas fa-file-excel text-4xl text-emerald-600 mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Excel</h3>
-                    <p class="text-gray-400">Formules, analyse de données</p>
+                    <p class="text-gray-600 text-sm">Formules et données</p>
                 </div>
-                <div class="skill-item bg-slate-800/50 p-6 rounded-lg shadow-md text-center hover:shadow-lg">
+                <div class="skill-card">
                     <i class="fas fa-git-alt text-4xl text-red-600 mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Git & GitHub</h3>
-                    <p class="text-gray-400">Contrôle de version et collaboration</p>
+                    <h3 class="font-bold text-lg mb-2">Git</h3>
+                    <p class="text-gray-600 text-sm">Version control</p>
                 </div>
-                <div class="skill-item bg-slate-800/50 p-6 rounded-lg shadow-md text-center hover:shadow-lg">
+                <div class="skill-card">
                     <i class="fas fa-wind text-4xl text-cyan-500 mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Tailwind CSS</h3>
-                    <p class="text-gray-400">Framework CSS utilitaire moderne</p>
+                    <p class="text-gray-600 text-sm">Framework moderne</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-  <!-- Section Projets -->
-<section id="projects" class="py-20 px-4 bg-slate-900/50">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
-      Mes Projets
-    </h2>
-    <div class="grid md:grid-cols-2 gap-8">
-
-      <!-- Projet 1 -->
-      <div class="bg-slate-800/50 rounded-lg shadow-md overflow-hidden border border-blue-800/30 hover:border-blue-500/50 transition">
-        <img src="marcher.png" alt="Artisanes" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-gray-100 mb-2">Artisanes Sénégalaises</h3>
-          <p class="text-gray-400">Présentation des créations locales des femmes artisanes.</p>
-        </div>
-      </div>
-
-      <!-- Projet 2 -->
-      <div class="bg-slate-800/50 rounded-lg shadow-md overflow-hidden border border-blue-800/30 hover:border-blue-500/50 transition">
-        <img src="touriste.png" alt="Tourisme" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-gray-100 mb-2">Guide Touristique Sénégal</h3>
-          <p class="text-gray-400">Découverte des sites et destinations du Sénégal.</p>
-        </div>
-      </div>
-
-      <!-- Projet 3 -->
-      <div class="bg-slate-800/50 rounded-lg shadow-md overflow-hidden border border-blue-800/30 hover:border-blue-500/50 transition">
-        <img src="recette.png" alt="Recettes" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-gray-100 mb-2">Recettes Sénégalaises</h3>
-          <p class="text-gray-400">Présentation des plats traditionnels du Sénégal.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-    <!-- Section Contact -->
-    <section id="contact" class="py-20 px-4 bg-slate-900/50">
+    <!-- Contact CTA -->
+    <section class="py-20 px-4 bg-gradient-to-r from-blue-700 to-blue-600 text-white text-center">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-center text-gray-100">Me Contacter</h2>
-            <div class="grid md:grid-cols-2 gap-12">
+            <h2 class="text-4xl font-bold mb-6">Prêt à démarrer?</h2>
+            <p class="text-lg mb-10 opacity-90">Contactez-moi pour discuter de votre prochain projet</p>
+            <a href="#contact" class="cta-button inline-block bg-white text-blue-600 px-10 py-4 rounded-lg font-semibold hover:shadow-2xl transition">
+                Me contacter maintenant
+            </a>
+        </div>
+    </section>
+
+    <!-- Galerie/Portfolio Section -->
+    <section class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800">Mes Réalisations</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="project-card">
+                    <img src="./web-dev.svg" alt="Réalisation 1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Développement Web Moderne</h3>
+                        <p class="text-gray-600 mb-4">Créer des expériences utilisateur exceptionnelles avec les dernières technologies web.</p>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">En savoir plus →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./mobile-responsive.svg" alt="Réalisation 2" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Design Responsive</h3>
+                        <p class="text-gray-600 mb-4">Interfaces qui s'adaptent parfaitement à tous les appareils, du mobile au desktop.</p>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">En savoir plus →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages/À Propos Avancé -->
+    <section class="py-24 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800">Pourquoi Me Choisir?</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card">
+                    <div class="text-5xl text-blue-600 mb-6"><i class="fas fa-lightning-bolt"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Performance</h3>
+                    <p class="text-gray-600">Sites ultra-rapides optimisés pour les moteurs de recherche et l'expérience utilisateur.</p>
+                </div>
+                <div class="service-card">
+                    <div class="text-5xl text-blue-600 mb-6"><i class="fas fa-paint-brush"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Design Créatif</h3>
+                    <p class="text-gray-600">Designs modernes et attractifs qui captivent et convertissent vos visiteurs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="text-5xl text-blue-600 mb-6"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Mobile First</h3>
+                    <p class="text-gray-600">Développement responsive prioritaire pour une accessibilité maximale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800">Me Contacter</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16">
                 <div>
-                    <h3 class="text-2xl font-bold mb-6 text-gray-100">Restons en contact</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-2xl text-blue-400 mr-4 mt-1"></i>
+                    <h3 class="text-2xl font-bold mb-10 text-gray-800">Restons en contact</h3>
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-2xl text-blue-600"></i>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-gray-100">Localisation</h4>
-                                <p class="text-gray-300">Dakar, Senegal</p>
+                                <h4 class="font-bold text-gray-800">Localisation</h4>
+                                <p class="text-gray-600">Dakar, Senegal</p>
                             </div>
                         </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-phone text-2xl text-blue-400 mr-4 mt-1"></i>
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-2xl text-blue-600"></i>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-gray-100">Téléphone</h4>
-                                <p class="text-gray-300"><a href="tel:+221787983999" class="hover:text-blue-400">+221 78 798 3999</a></p>
+                                <h4 class="font-bold text-gray-800">Téléphone</h4>
+                                <p class="text-gray-600"><a href="tel:+221787983999" class="hover:text-blue-600 font-semibold">+221 78 798 3999</a></p>
                             </div>
                         </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-envelope text-2xl text-blue-400 mr-4 mt-1"></i>
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-2xl text-blue-600"></i>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-gray-100">Email</h4>
-                                <p class="text-gray-300"><a href="mailto:adeotilia123@gmail.com" class="hover:text-blue-400">adeotilia123@gmail.com</a></p>
+                                <h4 class="font-bold text-gray-800">Email</h4>
+                                <p class="text-gray-600"><a href="mailto:adeotilia123@gmail.com" class="hover:text-blue-600 font-semibold">adeotilia123@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <form class="bg-slate-800/50 p-8 rounded-lg shadow-md">
-                        <div class="mb-4">
-                            <label class="block text-gray-300 font-semibold mb-2">Nom</label>
-                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" placeholder="Votre nom">
+                    <form class="bg-gray-50 p-10 rounded-lg">
+                        <div class="mb-6">
+                            <label class="block text-gray-800 font-semibold mb-3">Nom</label>
+                            <input type="text" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200" placeholder="Votre nom">
                         </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-300 font-semibold mb-2">Email</label>
-                            <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" placeholder="votre@email.com">
+                        <div class="mb-6">
+                            <label class="block text-gray-800 font-semibold mb-3">Email</label>
+                            <input type="email" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200" placeholder="votre@email.com">
                         </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-300 font-semibold mb-2">Message</label>
-                            <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 h-32" placeholder="Votre message..."></textarea>
+                        <div class="mb-8">
+                            <label class="block text-gray-800 font-semibold mb-3">Message</label>
+                            <textarea class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200 h-32 resize-none" placeholder="Votre message..."></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition">Envoyer</button>
+                        <button type="submit" class="cta-button w-full bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold py-4 rounded-lg hover:shadow-xl transition">
+                            <i class="fas fa-paper-plane mr-2"></i> Envoyer
+                        </button>
                     </form>
                 </div>
             </div>
@@ -315,76 +437,51 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-gray-300 py-12 px-4 border-t border-blue-900/30">
-        <div class="max-w-4xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+    <footer class="bg-gray-900 text-gray-300 py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div>
-                    <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">LIAMIDI</h3>
-                    <p class="text-gray-400">Développeur Web Frontend passionné - Étudiant en Licence 2 à UNIPRO.</p>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-400">LIAMIDI</h3>
+                    <p class="text-gray-400">Développeur Web Frontend créatif et innovant.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-4 text-gray-100">Liens Rapides</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#about" class="hover:text-blue-400 transition">À propos</a></li>
+                    <h4 class="font-bold text-lg mb-6 text-white">Navigation</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#home" class="hover:text-blue-400 transition">Accueil</a></li>
+                        <li><a href="#services" class="hover:text-blue-400 transition">Services</a></li>
                         <li><a href="#projects" class="hover:text-blue-400 transition">Projets</a></li>
                         <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-4 text-gray-100">Réseaux Sociaux</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" title="LinkedIn"><i class="fab fa-linkedin text-2xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" title="GitHub"><i class="fab fa-github text-2xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" title="Twitter"><i class="fab fa-twitter text-2xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" title="Facebook"><i class="fab fa-facebook text-2xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" title="Instagram"><i class="fab fa-instagram text-2xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" title="TikTok"><i class="fab fa-tiktok text-2xl"></i></a>
+                    <h4 class="font-bold text-lg mb-6 text-white">Services</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-blue-400 transition">Web Design</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Frontend</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">UI/UX</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white">Réseaux</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-700 transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-700 transition"><i class="fab fa-github"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-700 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-700 transition"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-blue-900/30 pt-8 text-center text-gray-500">
-                <p>&copy; 2026 Portfolio. Tous droits réservés. | Développé avec <span class="text-blue-400">❤</span> par moi-même</p>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-500">
+                <p>&copy; 2026 LIAMIDI. Tous droits réservés. | Créé avec <span class="text-blue-400">❤</span></p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu mobile toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Fermer le menu mobile au clic sur un lien
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Animation au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Appliquer l'animation aux éléments
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'all 0.6s ease-out';
-            observer.observe(section);
+        const mobileMenu = document.getElementById('mobile-menu') || document.createElement('div');
+        mobileMenuBtn?.addEventListener('click', () => {
+            document.querySelectorAll('nav div:last-child').forEach(el => el.classList.toggle('hidden'));
         });
     </script>
 </body>
